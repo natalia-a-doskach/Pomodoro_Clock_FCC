@@ -1,0 +1,138 @@
+body {
+  background-color: #2BC8FF;
+  font-family: 'Roboto', sans-serif;
+  color: #FFF;
+}
+button{
+cursor:pointer;
+}
+
+/*length regulators*/
+p{
+display: inline;
+font-style: normal;
+font-weight: lighter;
+line-height: normal;
+font-size: 3.7vmin;
+text-align: center;
+letter-spacing: 0.1em;
+}
+.lengthLbl{
+width: 10vmin;
+}
+.time{
+padding:1vmin;
+}
+
+.decreaseBtn {
+  width: 0;
+  height: 0;
+  background: rgba(0,0,0,0);
+  border-top: 10px solid rgba(255, 255, 255, 0);
+  border-bottom: 10px solid rgba(255, 255, 255, 0);
+  border-right: 20px solid rgba(255, 255, 255, 0.49);
+  border-left: 20px solid rgba(255, 255, 255, 0);
+  display:inline;
+}
+.decreaseBtn:hover{
+  border-right: 20px solid rgba(255, 255, 255, 0.80);
+}
+.increaseBtn {
+  width: 0;
+  height: 0;
+  background: rgba(0,0,0,0);
+  border-top: 10px solid rgba(255, 255, 255, 0);
+  border-bottom: 10px solid rgba(255, 255, 255, 0);
+  border-right: 20px solid rgba(255, 255, 255, 0);
+  border-left: 20px solid rgba(255, 255, 255, 0.49);
+  display:inline;
+}
+.increaseBtn:hover{
+  border-left: 20px solid rgba(255, 255, 255, 0.80);
+}
+
+/*pomodoro circle*/
+#powCircle {
+  width: 70vmin;
+  height: 70vmin;
+  background: #FFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: #2BC8FF;
+  border: none;
+  box-shadow: 0.5vmin 0.5vmin 0.5vmin rgba(0, 0, 0, 0.1);
+}
+#powCircle:hover{
+  box-shadow: inset 0.5vmin 0.5vmin 0.5vmin rgba(0, 0, 0, 0.1);
+}
+
+#powCircle img {
+  width: 50vmin;
+  height: auto;
+  margin-left: 10vmin;
+  margin-right: 10vmin;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 8vmin;
+  margin-bottom: 2vmin;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 6vmin;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 6vmin;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-top: 2vmin;
+}
+
+#restartBtn {
+  width: 20vmin;
+  height: 20vmin;
+  background: #FFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 75vh;
+  left: 70vw;
+  border: none;
+  background: url(pictures/resetBreak.svg);
+  background-size: contain;
+  box-shadow: 0.5vmin 0.5vmin 0.5vmin rgba(0, 0, 0, 0.1);
+}
+#restartBtn:hover{
+  box-shadow: inset 0.5vmin 0.5vmin 0.5vmin rgba(0, 0, 0, 0.1);
+}
+/*instructions*/
+#instructions{
+  position: absolute;
+  top: 80vh;
+  left: 5vmin;
+  opacity:0.7;
+}
+
+footer p{
+font-size: 2vh;
+position:absolute;
+top: 95vh;
+width:90vw;
+text-align: right;
+opacity:0.6;
+}
+
+footer a{
+color:white;
+}
