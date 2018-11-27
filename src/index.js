@@ -2,6 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const workStyle= "#6C63FF";
+const breakStyle= "#2BC8FF";
+
+Number.prototype.zerofy = function() {
+    let s = String(this);
+    while (s.length <  2) {s = "0" + s;}
+    return s;
+}
+
 class App extends React.Component{
 constructor(props){
 super(props);
@@ -16,7 +25,8 @@ this.reset = this.reset.bind(this);
 this.changeDuration = this.changeDuration.bind(this);
 }
 reset(){
-this.setState({isWorkMode: true,
+this.setState({isWorkMode: !
+  this.state.isWorkMode,
   workDuration: 25,
   breakDuration: 5,
   currTimeWork: 25*60,
@@ -43,15 +53,23 @@ if (!this.state.isTimeRunning){
   currTimeBreak: this.state.currTimeBreak - 1*60})}
   }};
 }
-render(){return(
-<div>
+render(){
+if (this.state.isWorkMode){var styleObj = {background: workStyle}}
+else{var styleObj = {background: breakStyle}}
+return(
+<div id="outermost" style={styleObj} >
+<main>
 <TimeRegulator  workDuration={this.state.workDuration}
  breakDuration={this.state.breakDuration} changeDuration={this.changeDuration}/>
 <Pomodoro isWorkMode={this.state.isWorkMode} workDuration={this.state.workDuration}
  breakDuration={this.state.breakDuration} currTimeWork={this.state.currTimeWork}
  currTimeBreak={this.state.currTimeBreak}/>
 <p id="instructions">press inside the big <br/> circle to start/pause <br/> session...</p>
-<ResetBtn reset={this.reset}/>
+<ResetBtn reset={this.reset} isWorkMode={this.state.isWorkMode}/>
+</main>
+<footer>
+  <p>Made by <a target='_blank' href='https://github.com/natalia-a-doskach'>Natalia Doskach</a>.</p>
+</footer>
 </div>
 )}
 }
@@ -67,12 +85,12 @@ this.props.changeDuration(action)
 render(){return(
   <div id="lengthsDiv">
   <button className="decreaseBtn arrowBtn" id="decrSession" value="decrWork" onClick={this.handleClick}></button>
-  <p className="time" id="sessionTime">{this.props.workDuration}</p>
+  <p className="time" id="sessionTime">{this.props.workDuration.zerofy()}</p>
   <button className="increaseBtn arrowBtn" id="incrSession" value="incrWork"  onClick={this.handleClick}></button>
   <p className="lengthLbl">Session length</p>
   <br/>
   <button className="decreaseBtn" id="decrBreak" value="decrBreak"  onClick={this.handleClick}></button>
-  <p className="time" id="breakTime">{this.props.breakDuration}</p>
+  <p className="time" id="breakTime">{this.props.breakDuration.zerofy()}</p>
   <button className="increaseBtn" id="incrBreak" value="incrBreak"  onClick={this.handleClick}></button>
   <p className="lengthLbl">Break length</p>
   </div>)}
@@ -82,16 +100,16 @@ class Pomodoro extends React.Component{
 render(){
 if (this.props.isWorkMode){return(
   <button id="powCircle">
-  <h1>WORK</h1>
+  <h1 style={{color: workStyle}} >WORK</h1>
   <img src="./workPic.svg" alt="man working"/>
-  <h2>{parseInt(this.props.currTimeWork/60)+":"+this.props.currTimeWork%60}</h2>
+  <h2 style={{color: workStyle}} >{parseInt(this.props.currTimeWork/60).zerofy()+":"+(this.props.currTimeWork%60).zerofy()}</h2>
   </button>
 )}
 else{return(
   <button id="powCircle">
   <h1>BREAK</h1>
   <img src="./breakPic.svg" alt="man playing"/>
-  <h2>{parseInt(this.props.currTimeBreak/60)+":"+this.props.currTimeBreak%60}</h2>
+  <h2>{parseInt(this.props.currTimeBreak/60).zerofy()+":"+(this.props.currTimeBreak%60).zerofy()}</h2>
   </button>
 )}
 }
@@ -103,7 +121,7 @@ super(props);
 this.handleClick = this.handleClick.bind(this)
 }
 handleClick(){this.props.reset()}
-render(){return(<button id="restartBtn" onClick={this.handleClick}></button>)}
+render(){return <button id="restartBtn" onClick={this.handleClick}></button>}
 }
 
 ReactDOM.render(<App / > , document.getElementById('root'));
