@@ -2,54 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="stylesheet" href="../src/index.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <title>Pomodoro Clock</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-<main>
-<div id="lengthsDiv">
-<!--Session time regulator -->
-<button class="decreaseBtn arrowBtn" id="decrSession"></button>
-<p class="time" id="sessionTime">25</p>
-<button class="increaseBtn arrowBtn" id="incrSession"></button>
-<p class="lengthLbl">Session length</p>
-<br/>
-<!--Break time regulator -->
-<button class="decreaseBtn" id="decrBreak"></button>
-<p class="time" id="breakTime">05</p>
-<button class="increaseBtn" id="incrBreak"></button>
-<p class="lengthLbl">Break length</p>
-</div>
-<!--instructions -->
-<p id="instructions">press inside the big <br/> circle to start/pause <br/> session...</p>
-<!--pomodoro -->
-<button id="powCircle">
-<h1>BREAK</h1>
-<img src="../src/pictures/breakPic.svg" alt="man working">
-<h2>05:00</h2>
-</div>
-<button id="restartBtn"></button>
+<main id="root">
+
 <main>
   <footer>
     <p>Made by <a target='_blank' href='https://github.com/natalia-a-doskach'>Natalia Doskach</a>.</p>
